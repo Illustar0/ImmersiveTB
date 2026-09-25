@@ -77,6 +77,13 @@ public sealed class Build : NukeBuild
                 .SetProperty("Platform", architecture)
                 .SetOutput(PublishDirectory(architecture)))));
 
+    /// <summary>Publishes and archives portable x64 and arm64 applications.</summary>
+    [SuppressMessage("Major Code Smell", "S1144", Justification = "NUKE invokes this target by name from CI.")]
+    private Target ArchivePortable => target => target
+        .DependsOn(Publish)
+        .Produces(Portable / "*")
+        .Executes(ArchivePortableBuilds);
+
     /// <summary>Creates signed MSIX packages and a signed dual architecture bundle.</summary>
     [SuppressMessage("Major Code Smell", "S1144", Justification = "NUKE invokes this target by name from CI.")]
     private Target Package => target => target
@@ -90,9 +97,10 @@ public sealed class Build : NukeBuild
             }
 
             Pack();
+            ArchivePortableBuilds();
             if (SeparatePdbs)
             {
-                ArchiveRelease();
+                ArchiveSymbols();
             }
         });
 
@@ -154,8 +162,8 @@ public sealed class Build : NukeBuild
         }
     }
 
-    /// <summary>Archives each architecture's portable application and matching PDBs.</summary>
-    private void ArchiveRelease()
+    /// <summary>Archives each architecture's portable application.</summary>
+    private void ArchivePortableBuilds()
     {
         Directory.CreateDirectory(Portable);
         foreach (var architecture in Architectures)
@@ -164,6 +172,14 @@ public sealed class Build : NukeBuild
                 Portable / $"ImmersiveTB-{GetSemanticVersion()}-{architecture}-Portable.zip",
                 compressionLevel: CompressionLevel.SmallestSize,
                 fileMode: FileMode.Create);
+        }
+    }
+
+    /// <summary>Archives the separated PDBs for each architecture.</summary>
+    private void ArchiveSymbols()
+    {
+        foreach (var architecture in Architectures)
+        {
             (Symbols / architecture).ZipTo(
                 Symbols / $"ImmersiveTB-{GetSemanticVersion()}-{architecture}-PDBs.zip",
                 compressionLevel: CompressionLevel.SmallestSize,
