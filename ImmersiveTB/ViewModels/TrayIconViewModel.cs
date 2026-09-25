@@ -1,11 +1,9 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using Windows.ApplicationModel;
 using ImmersiveTB.Contracts.Services;
 using ImmersiveTB.Core.Contracts.Services;
 using ImmersiveTB.Core.Logging;
-using ImmersiveTB.Core.Models;
 using ImmersiveTB.Core.Services.Taskbar;
 using ImmersiveTB.Helpers;
 using ImmersiveTB.Logging;
@@ -25,7 +23,6 @@ namespace ImmersiveTB.ViewModels;
 /// </summary>
 public sealed partial class TrayIconViewModel : ObservableObject, IDisposable
 {
-    private const string StartupTaskId = "ImmersiveTBStartup";
     private readonly IDispatcherService _dispatcher;
     private readonly ApplicationPreferencesService _preferences;
     private readonly ITaskbarManagerService _taskbarManager;
@@ -33,8 +30,6 @@ public sealed partial class TrayIconViewModel : ObservableObject, IDisposable
     private readonly IApplicationSettings _settings;
     private readonly ILogger<TrayIconViewModel> _logger;
     private readonly IDisposable? _optionsSubscription;
-    private StartupTaskState _startupState = StartupTaskState.DisabledByPolicy;
-    private bool _hasStartupState;
     private bool _disposed;
 
     /// <summary>
@@ -47,6 +42,7 @@ public sealed partial class TrayIconViewModel : ObservableObject, IDisposable
         ITaskbarStateService taskbarState,
         IDispatcherService dispatcher,
         IApplicationSettings settings,
+        StartupManager startupManager,
         IOptionsMonitor<ApplicationPreferences> options,
         ILogger<TrayIconViewModel> logger
     )
@@ -57,6 +53,7 @@ public sealed partial class TrayIconViewModel : ObservableObject, IDisposable
         _taskbarState = taskbarState;
         _dispatcher = dispatcher;
         _settings = settings;
+        StartupManager = startupManager;
         _logger = logger;
         _optionsSubscription = options.OnChange(_ => NotifyOnDispatcher(NotifyLogLevelProperties));
         _taskbarManager.AvailabilityChanged += OnTtbAvailabilityChanged;
@@ -72,81 +69,12 @@ public sealed partial class TrayIconViewModel : ObservableObject, IDisposable
     /// <summary>Gets the localized tray icon tooltip.</summary>
     public string ToolTipText => "AppDisplayName".GetLocalized();
 
-    /// <summary>Gets whether Windows currently starts the packaged application at sign-in.</summary>
-    public bool IsStartupEnabled => _startupState is StartupTaskState.Enabled or StartupTaskState.EnabledByPolicy;
-
-    /// <summary>Gets whether the startup setting can be changed in this runtime.</summary>
-    public bool CanToggleStartup => _hasStartupState
-                                    && _startupState is StartupTaskState.Disabled or StartupTaskState.Enabled;
-
-    /// <summary>Reads startup state when the tray menu opens.</summary>
-    public async Task RefreshStartupStateAsync()
-    {
-        _hasStartupState = false;
-        OnPropertyChanged(nameof(CanToggleStartup));
-        if (!RuntimeHelper.IsMSIX)
-        {
-            return;
-        }
-
-        try
-        {
-            var task = await StartupTask.GetAsync(StartupTaskId);
-            _startupState = task.State;
-            _hasStartupState = true;
-        }
-        catch (Exception exception)
-        {
-            AppLogMessages.StartupTaskOperationFailed(_logger, exception);
-        }
-
-        NotifyStartupStateChanged();
-    }
+    /// <summary>Gets the application's startup registration state.</summary>
+    public StartupManager StartupManager { get; }
 
     /// <summary>Toggles startup registration when Windows permits it.</summary>
     [RelayCommand]
-    private async Task ToggleStartupAsync()
-    {
-        _hasStartupState = false;
-        OnPropertyChanged(nameof(CanToggleStartup));
-        if (!RuntimeHelper.IsMSIX)
-        {
-            return;
-        }
-
-        try
-        {
-            var task = await StartupTask.GetAsync(StartupTaskId);
-            if (task.State == StartupTaskState.Disabled)
-            {
-                _startupState = await task.RequestEnableAsync();
-            }
-            else
-            {
-                if (task.State == StartupTaskState.Enabled)
-                {
-                    task.Disable();
-                }
-
-                _startupState = task.State;
-            }
-
-            _hasStartupState = true;
-        }
-        catch (Exception exception)
-        {
-            AppLogMessages.StartupTaskOperationFailed(_logger, exception);
-        }
-
-        NotifyStartupStateChanged();
-    }
-
-    /// <summary>Restores the menu to the state reported by Windows.</summary>
-    private void NotifyStartupStateChanged()
-    {
-        OnPropertyChanged(nameof(IsStartupEnabled));
-        OnPropertyChanged(nameof(CanToggleStartup));
-    }
+    private Task ToggleStartupAsync() => StartupManager.ToggleAsync();
 
     /// <summary>Gets whether trace logging is selected.</summary>
     public bool IsTraceLogLevel

@@ -74,6 +74,7 @@ public sealed partial class App : Application, IDisposable
 
         services.AddSingleton<IThemeSelectorService, ThemeSelectorService>();
         services.AddSingleton<ApplicationPreferencesService>();
+        services.AddSingleton<StartupManager>();
         services.AddSingleton<IDispatcherService, DispatcherService>();
         services.AddSingleton<IScreenCapture, GdiScreenCapture>();
         services.AddSingleton<IScreenCapture, GraphicsCaptureScreenCapture>();
@@ -151,6 +152,7 @@ public sealed partial class App : Application, IDisposable
     {
         base.OnLaunched(args);
         await Host.StartAsync();
+        await Host.Services.GetRequiredService<StartupManager>().InitializeAsync();
         _trayIconView = new TrayIconView(Host.Services.GetRequiredService<TrayIconViewModel>());
         _trayIconView.OpenRequested += OnOpenRequested;
         _trayIconView.ExitRequested += OnExitRequested;

@@ -63,11 +63,4 @@ public sealed partial class TrayIconView : UserControl, IDisposable
     /// <summary>Raises the shutdown request from the menu command.</summary>
     [RelayCommand]
     private void RequestExit() => ExitRequested?.Invoke(this, EventArgs.Empty);
-
-    /// <summary>Refreshes the menu and the packaged application's startup state.</summary>
-    private async void OnMenuOpening(object sender, object args)
-    {
-        Bindings.Update();
-        await ViewModel.RefreshStartupStateAsync().ConfigureAwait(false);
-    }
 }

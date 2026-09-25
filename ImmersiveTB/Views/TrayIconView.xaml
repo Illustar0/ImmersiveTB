@@ -11,7 +11,7 @@
         ToolTipText="{x:Bind ViewModel.ToolTipText, Mode=OneWay}"
         x:Name="TaskbarIconControl">
         <tb:TaskbarIcon.ContextFlyout>
-            <MenuFlyout Opening="OnMenuOpening">
+            <MenuFlyout>
                 <ToggleMenuFlyoutItem IsChecked="{x:Bind ViewModel.DynamicTaskbar.IsEnabled, Mode=TwoWay, FallbackValue=True}" x:Uid="Tray_DynamicColor">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE790;" />
@@ -85,8 +85,8 @@
                 </MenuFlyoutSubItem>
                 <ToggleMenuFlyoutItem
                     Command="{x:Bind ViewModel.ToggleStartupCommand}"
-                    IsChecked="{x:Bind ViewModel.IsStartupEnabled, Mode=OneWay}"
-                    IsEnabled="{x:Bind ViewModel.CanToggleStartup, Mode=OneWay}"
+                    IsChecked="{x:Bind ViewModel.StartupManager.IsEnabled, Mode=OneWay, FallbackValue=False}"
+                    IsEnabled="{x:Bind ViewModel.StartupManager.CanToggle, Mode=OneWay, FallbackValue=False}"
                     x:Uid="Tray_Startup" />
                 <MenuFlyoutSeparator />
                 <MenuFlyoutItem Command="{x:Bind RequestExitCommand}" x:Uid="Tray_Quit">
