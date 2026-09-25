@@ -1,0 +1,82 @@
+<Page
+    x:Class="ImmersiveTB.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid AutomationProperties.LandmarkType="Main" x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            AutomationProperties.HeadingLevel="Level1"
+            Grid.Row="0"
+            MaxWidth="1000"
+            Style="{StaticResource PageHeaderTextBlockStyle}"
+            Text="{x:Bind Header}" />
+        <StackPanel
+            Grid.Row="1"
+            Margin="24,0,24,24"
+            MaxWidth="1000"
+            Spacing="4"
+            x:Name="ContentPanel">
+            <Grid Margin="0,8,0,28">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Grid.Column="0"
+                    Height="80"
+                    Padding="12"
+                    Width="80">
+                    <Image
+                        AutomationProperties.AccessibilityView="Raw"
+                        Source="/Assets/StoreLogo.png"
+                        Stretch="Uniform" />
+                </Border>
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center">
+                    <TextBlock
+                        FontWeight="SemiBold"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        x:Uid="Main_AppName" />
+                    <TextBlock
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Margin="0,4,0,0"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        x:Uid="Main_Tagline" />
+                </StackPanel>
+            </Grid>
+            <TextBlock
+                AutomationProperties.HeadingLevel="Level2"
+                FontWeight="SemiBold"
+                Margin="1,0,0,8"
+                Style="{StaticResource BodyTextBlockStyle}"
+                x:Uid="Main_Features" />
+            <controls:SettingsCard x:Uid="Main_DynamicColor">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE790;" />
+                </controls:SettingsCard.HeaderIcon>
+                <ToggleSwitch IsOn="{x:Bind ViewModel.DynamicTaskbar.IsEnabled, Mode=TwoWay, FallbackValue=True}" x:Uid="Settings_Toggle" />
+            </controls:SettingsCard>
+            <controls:SettingsCard x:Uid="Main_DynamicTheme">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE771;" />
+                </controls:SettingsCard.HeaderIcon>
+                <ToggleSwitch
+                    IsEnabled="{x:Bind ViewModel.DynamicTaskbar.IsEnabled, Mode=OneWay, FallbackValue=True}"
+                    IsOn="{x:Bind ViewModel.DynamicTaskbar.IsDynamicThemeEnabled, Mode=TwoWay, FallbackValue=True}"
+                    x:Uid="Settings_Toggle" />
+            </controls:SettingsCard>
+        </StackPanel>
+
+    </Grid>
+</Page>

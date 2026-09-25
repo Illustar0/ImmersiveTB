@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+  workflow_dispatch:
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install Windows App CLI
+        shell: pwsh
+        run: winget install Microsoft.winappcli --source winget --accept-source-agreements --accept-package-agreements --disable-interactivity
+
+      - name: Determine package version
+        id: version
+        shell: pwsh
+        run: |
+          $tag = git tag --list 'v*' --sort=-version:refname | Where-Object { $_ -match '^v\d+\.\d+\.\d+$' } | Select-Object -First 1
+          $version = if ($tag) { $tag.Substring(1) } else { ([xml](Get-Content ImmersiveTB/Package.appxmanifest)).Package.Identity.Version -replace '\.\d+$', '' }
+          "semver=$version" >> $env:GITHUB_OUTPUT
+          "revision=$([int]$env:GITHUB_RUN_NUMBER % 65536)" >> $env:GITHUB_OUTPUT
+
+      - name: Publish and package
+        id: package
+        shell: pwsh
+        env:
+          SIGNING_CERTIFICATE: ${{ secrets.SIGNING_CERTIFICATE }}
+          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+        run: |
+          $target = if ($env:SIGNING_CERTIFICATE -and $env:SIGNING_CERTIFICATE_PASSWORD) { 'Package' } else { 'Publish' }
+          .\build.ps1 --target $target --sem-ver '${{ steps.version.outputs.semver }}' --revision '${{ steps.version.outputs.revision }}'
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          "signed=$($target -eq 'Package')" >> $env:GITHUB_OUTPUT
+
+      - name: Upload packages
+        if: ${{ steps.package.outputs.signed == 'True' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: ImmersiveTB-${{ steps.version.outputs.semver }}.${{ steps.version.outputs.revision }}
+          path: |
+            artifacts/packages/Certificate.cer
+            artifacts/packages/*.msix
+            artifacts/packages/*.msixbundle
+          if-no-files-found: error

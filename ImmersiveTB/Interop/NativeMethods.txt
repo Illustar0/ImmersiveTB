@@ -1,0 +1,23 @@
+// Monitor
+MonitorFromWindow
+MONITOR_FROM_FLAGS
+
+// GDI screen capture
+GetDC
+ReleaseDC
+CreateCompatibleDC
+DeleteDC
+CreateCompatibleBitmap
+SelectObject
+BitBlt
+DeleteObject
+GetDIBits
+BITMAPINFO
+BITMAPINFOHEADER
+ROP_CODE
+
+// Package identity
+GetCurrentPackageFullName
+
+// Direct3D interop
+CreateDirect3D11DeviceFromDXGIDevice

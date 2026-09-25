@@ -1,0 +1,100 @@
+<UserControl
+    x:Class="ImmersiveTB.Views.TrayIconView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:tb="using:H.NotifyIcon"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tb:TaskbarIcon
+        ContextMenuMode="SecondWindow"
+        IconSource="ms-appx:///Assets/App.ico"
+        LeftClickCommand="{x:Bind RequestOpenCommand}"
+        NoLeftClickDelay="True"
+        ToolTipText="{x:Bind ViewModel.ToolTipText, Mode=OneWay}"
+        x:Name="TaskbarIconControl">
+        <tb:TaskbarIcon.ContextFlyout>
+            <MenuFlyout Opening="OnMenuOpening">
+                <ToggleMenuFlyoutItem IsChecked="{x:Bind ViewModel.DynamicTaskbar.IsEnabled, Mode=TwoWay, FallbackValue=True}" x:Uid="Tray_DynamicColor">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE790;" />
+                    </ToggleMenuFlyoutItem.Icon>
+                </ToggleMenuFlyoutItem>
+                <ToggleMenuFlyoutItem
+                    IsChecked="{x:Bind ViewModel.DynamicTaskbar.IsDynamicThemeEnabled, Mode=TwoWay, FallbackValue=True}"
+                    IsEnabled="{x:Bind ViewModel.DynamicTaskbar.IsEnabled, Mode=OneWay, FallbackValue=True}"
+                    x:Uid="Tray_DynamicTheme">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE771;" />
+                    </ToggleMenuFlyoutItem.Icon>
+                </ToggleMenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutSubItem x:Uid="Tray_Ttb">
+                    <MenuFlyoutSubItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE7F8;" />
+                    </MenuFlyoutSubItem.Icon>
+                    <MenuFlyoutItem IsEnabled="False" Text="{x:Bind ViewModel.TtbConnectionText, Mode=OneWay}" />
+                    <MenuFlyoutItem IsEnabled="False" Text="{x:Bind ViewModel.TtbStateText, Mode=OneWay}" />
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Command="{x:Bind ViewModel.ReconnectTtbCommand}" x:Uid="Tray_ReconnectTtb" />
+                    <MenuFlyoutItem Command="{x:Bind ViewModel.ResetStateCommand}" x:Uid="Tray_ResetState" />
+                </MenuFlyoutSubItem>
+                <MenuFlyoutSubItem x:Uid="Tray_Advanced">
+                    <MenuFlyoutSubItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE713;" />
+                    </MenuFlyoutSubItem.Icon>
+                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenLogFileCommand}" x:Uid="Tray_OpenLogFile">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE8A5;" />
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutSubItem x:Uid="Tray_LogLevel">
+                        <RadioMenuFlyoutItem
+                            GroupName="LogLevel"
+                            IsChecked="{x:Bind ViewModel.IsTraceLogLevel, Mode=TwoWay}"
+                            x:Uid="LogLevel_Trace" />
+                        <RadioMenuFlyoutItem
+                            GroupName="LogLevel"
+                            IsChecked="{x:Bind ViewModel.IsDebugLogLevel, Mode=TwoWay}"
+                            x:Uid="LogLevel_Debug" />
+                        <RadioMenuFlyoutItem
+                            GroupName="LogLevel"
+                            IsChecked="{x:Bind ViewModel.IsInformationLogLevel, Mode=TwoWay}"
+                            x:Uid="LogLevel_Information" />
+                        <RadioMenuFlyoutItem
+                            GroupName="LogLevel"
+                            IsChecked="{x:Bind ViewModel.IsWarningLogLevel, Mode=TwoWay}"
+                            x:Uid="LogLevel_Warning" />
+                        <RadioMenuFlyoutItem
+                            GroupName="LogLevel"
+                            IsChecked="{x:Bind ViewModel.IsErrorLogLevel, Mode=TwoWay}"
+                            x:Uid="LogLevel_Error" />
+                        <RadioMenuFlyoutItem
+                            GroupName="LogLevel"
+                            IsChecked="{x:Bind ViewModel.IsCriticalLogLevel, Mode=TwoWay}"
+                            x:Uid="LogLevel_Critical" />
+                        <RadioMenuFlyoutItem
+                            GroupName="LogLevel"
+                            IsChecked="{x:Bind ViewModel.IsLoggingOff, Mode=TwoWay}"
+                            x:Uid="LogLevel_Off" />
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutItem Command="{x:Bind ViewModel.DumpStateCommand}" x:Uid="Tray_DumpState" />
+                    <MenuFlyoutItem Command="{x:Bind ViewModel.EditSettingsCommand}" x:Uid="Tray_EditSettings" />
+                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenDataCommand}" x:Uid="Tray_OpenData">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE8B7;" />
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
+                </MenuFlyoutSubItem>
+                <ToggleMenuFlyoutItem
+                    Command="{x:Bind ViewModel.ToggleStartupCommand}"
+                    IsChecked="{x:Bind ViewModel.IsStartupEnabled, Mode=OneWay}"
+                    IsEnabled="{x:Bind ViewModel.CanToggleStartup, Mode=OneWay}"
+                    x:Uid="Tray_Startup" />
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem Command="{x:Bind RequestExitCommand}" x:Uid="Tray_Quit">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE7E8;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </MenuFlyout>
+        </tb:TaskbarIcon.ContextFlyout>
+    </tb:TaskbarIcon>
+</UserControl>

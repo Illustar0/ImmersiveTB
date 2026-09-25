@@ -1,0 +1,26 @@
+<Solution>
+    <Configurations>
+        <Platform Name="arm64"/>
+        <Platform Name="x64"/>
+        <Platform Name="x86"/>
+    </Configurations>
+    <Project Path="ImmersiveTB.Core/ImmersiveTB.Core.csproj">
+        <Platform Solution="*|arm64" Project="arm64"/>
+        <Platform Solution="*|x64" Project="x64"/>
+        <Platform Solution="*|x86" Project="x86"/>
+    </Project>
+    <Project Path="ImmersiveTB.Benchmarks/ImmersiveTB.Benchmarks.csproj">
+        <Platform Solution="*|x64" Project="x64"/>
+    </Project>
+    <Project Path="ImmersiveTB/ImmersiveTB.csproj">
+        <Platform Solution="*|arm64" Project="arm64"/>
+        <Platform Solution="*|x64" Project="x64"/>
+        <Platform Solution="*|x86" Project="x86"/>
+        <Deploy/>
+    </Project>
+    <Project Path="build/_build.csproj">
+        <Platform Solution="*|arm64" Project="Any CPU"/>
+        <Platform Solution="*|x64" Project="Any CPU"/>
+        <Platform Solution="*|x86" Project="Any CPU"/>
+    </Project>
+</Solution>

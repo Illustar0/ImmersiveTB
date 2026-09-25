@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+        <TargetPlatformMinVersion>10.0.20348.0</TargetPlatformMinVersion>
+        <Platforms>x64</Platforms>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <CsWin32RunAsBuildTask>true</CsWin32RunAsBuildTask>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BenchmarkDotNet"/>
+        <PackageReference Include="CommunityToolkit.HighPerformance"/>
+        <PackageReference Include="DotNext"/>
+        <PackageReference Include="Microsoft.Windows.CsWin32">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Windows.CsWinRT"/>
+        <PackageReference Include="Microsoft.WindowsAppSDK.InteractiveExperiences"/>
+        <PackageReference Include="Microsoft.WindowsAppSDK.WinUI"/>
+        <PackageReference Include="Vortice.Direct3D11"/>
+        <PackageReference Include="Vortice.DXGI"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ImmersiveTB.Core\ImmersiveTB.Core.csproj">
+            <AdditionalProperties>Platform=x64</AdditionalProperties>
+        </ProjectReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="Interop\NativeMethods.txt"/>
+        <AdditionalFiles Include="Interop\NativeMethods.json"/>
+    </ItemGroup>
+
+</Project>

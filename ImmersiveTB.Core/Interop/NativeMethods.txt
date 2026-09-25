@@ -1,0 +1,70 @@
+// Power management
+GetSystemPowerStatus
+RegisterPowerSettingNotification
+UnregisterPowerSettingNotification
+SYSTEM_POWER_STATUS
+
+// Window event hooks
+HMODULE
+SetWinEventHook
+UnhookWinEvent
+WINEVENTPROC
+EVENT_OBJECT_SHOW
+EVENT_OBJECT_HIDE
+EVENT_SYSTEM_MINIMIZESTART
+EVENT_SYSTEM_MINIMIZEEND
+EVENT_OBJECT_LOCATIONCHANGE
+EVENT_SYSTEM_FOREGROUND
+EVENT_OBJECT_CREATE
+EVENT_OBJECT_DESTROY
+EVENT_OBJECT_CLOAKED
+EVENT_OBJECT_UNCLOAKED
+WINEVENT_OUTOFCONTEXT
+
+// Window information
+GetForegroundWindow
+MonitorFromWindow
+IsWindow
+IsWindowVisible
+IsIconic
+IsZoomed
+FindWindow
+GetWindowThreadProcessId
+GetClassName
+GetWindowLong
+
+GetAncestor
+EnumWindows
+
+// Monitor
+GetMonitorInfo
+HMONITOR
+MONITORINFO
+MONITOR_FROM_FLAGS
+
+// Window creation
+RegisterClassEx
+CreateWindowEx
+DestroyWindow
+DefWindowProc
+GetModuleHandle
+WNDCLASSEXW
+WNDPROC
+
+// MessagePump
+GetMessage
+TranslateMessage
+DispatchMessage
+
+// Thread
+GetCurrentThreadId
+PostThreadMessage
+WM_QUIT
+
+// Taskbar
+GetWindowRect
+
+// Window Message
+PostMessage
+RegisterWindowMessage
+SendMessageTimeout

@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "ImmersiveTB (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ImmersiveTB (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

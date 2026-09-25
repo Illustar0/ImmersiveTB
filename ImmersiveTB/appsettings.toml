@@ -1,0 +1,29 @@
+[Application]
+AppTheme = "System"
+ApplicationLanguage = "System"
+
+[Logging]
+MinimumLevel = "Information"
+
+[ColorSampling]
+CaptureMethod = "Gdi"
+SampleHeight = 10
+TaskbarOffset = 1
+Algorithm = "DominantColor"
+
+[ColorSampling.GaussianBlurOptions]
+Radius = 20
+
+[PostProcess]
+Enabled = false
+BrightnessAdjustment = 0.0
+SaturationAdjustment = 0.0
+ContrastAdjustment = 0.0
+Opacity = 1.0
+
+[TaskbarAppearance]
+ColorAnimationEnabled = true
+ColorEasing = "EaseOutCubic"
+ColorAnimationFrameRate = 60
+ColorAnimationDurationMs = 750
+ColorSamplingDelayMs = 250

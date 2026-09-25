@@ -1,0 +1,331 @@
+﻿<Page
+    mc:Ignorable="d"
+    x:Class="ImmersiveTB.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid AutomationProperties.LandmarkType="Main" x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            AutomationProperties.HeadingLevel="Level1"
+            Grid.Row="0"
+            MaxWidth="1000"
+            Style="{StaticResource PageHeaderTextBlockStyle}"
+            Text="{x:Bind Header}" />
+        <ScrollViewer Grid.Row="1">
+            <Grid>
+                <StackPanel
+                    Margin="24,0,24,24"
+                    MaxWidth="1000"
+                    Spacing="4"
+                    x:Name="ContentPanel">
+                    <!--  个性化设置  -->
+                    <TextBlock
+                        AutomationProperties.HeadingLevel="Level2"
+                        FontWeight="SemiBold"
+                        Margin="1,0,0,8"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        x:Uid="Settings_Personalization" />
+                    <controls:SettingsCard x:Uid="Settings_Theme">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE793;" />
+                        </controls:SettingsCard.HeaderIcon>
+                        <ComboBox ItemsSource="{x:Bind ViewModel.AppThemeDisplayNames, Mode=OneWay}" SelectedIndex="{x:Bind ViewModel.AppThemeIndex, Mode=TwoWay}" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard x:Uid="Settings_Language">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE775;" />
+                        </controls:SettingsCard.HeaderIcon>
+                        <ComboBox ItemsSource="{x:Bind ViewModel.ApplicationLanguageDisplayNames, Mode=OneWay}" SelectedIndex="{x:Bind ViewModel.ApplicationLanguageIndex, Mode=TwoWay}" />
+                    </controls:SettingsCard>
+                    <!--  颜色采样设置  -->
+                    <TextBlock
+                        AutomationProperties.HeadingLevel="Level2"
+                        FontWeight="SemiBold"
+                        Margin="1,24,0,8"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        x:Uid="Settings_ColorSampling" />
+                    <controls:SettingsExpander x:Uid="Settings_SamplingConfiguration">
+                        <controls:SettingsExpander.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xEF3C;" />
+                        </controls:SettingsExpander.HeaderIcon>
+                        <controls:SettingsExpander.Items>
+                            <controls:SettingsCard x:Uid="Settings_CaptureMethod">
+                                <ComboBox
+                                    ItemsSource="{x:Bind ViewModel.CaptureMethods, Mode=OneWay}"
+                                    MinWidth="160"
+                                    SelectedIndex="{x:Bind ViewModel.CaptureMethodIndex, Mode=TwoWay}"
+                                    x:Name="CaptureMethodCombo" />
+                            </controls:SettingsCard>
+                            <controls:SettingsCard x:Uid="Settings_SampleHeight">
+                                <NumberBox
+                                    Maximum="100"
+                                    MinWidth="96"
+                                    Minimum="1"
+                                    SpinButtonPlacementMode="Inline"
+                                    Value="{x:Bind ViewModel.SampleHeight, Mode=TwoWay}"
+                                    x:Name="SampleHeightBox" />
+                            </controls:SettingsCard>
+                            <controls:SettingsCard x:Uid="Settings_TaskbarOffset">
+                                <NumberBox
+                                    Maximum="50"
+                                    MinWidth="96"
+                                    Minimum="0"
+                                    SpinButtonPlacementMode="Inline"
+                                    Value="{x:Bind ViewModel.TaskbarOffset, Mode=TwoWay}"
+                                    x:Name="TaskbarOffsetBox" />
+                            </controls:SettingsCard>
+                            <controls:SettingsCard x:Uid="Settings_SamplingAlgorithm">
+                                <ComboBox
+                                    ItemsSource="{x:Bind ViewModel.SamplingAlgorithms, Mode=OneWay}"
+                                    MinWidth="160"
+                                    SelectedIndex="{x:Bind ViewModel.SamplingAlgorithmIndex, Mode=TwoWay}"
+                                    x:Name="SamplingAlgorithmCombo" />
+                            </controls:SettingsCard>
+                        </controls:SettingsExpander.Items>
+                    </controls:SettingsExpander>
+                    <!--  高斯模糊选项  -->
+                    <controls:SettingsCard Visibility="{x:Bind ViewModel.IsGaussianBlurSelected, Mode=OneWay}" x:Uid="Settings_GaussianRadius">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE91B;" />
+                        </controls:SettingsCard.HeaderIcon>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Spacing="12"
+                            x:Name="GaussianControls">
+                            <Slider
+                                Maximum="50"
+                                Minimum="1"
+                                Value="{x:Bind ViewModel.GaussianBlurRadius, Mode=TwoWay}"
+                                VerticalAlignment="Center"
+                                Width="200" />
+                            <TextBlock
+                                MinWidth="30"
+                                Text="{x:Bind ViewModel.GaussianBlurRadius, Mode=OneWay}"
+                                VerticalAlignment="Center" />
+                        </StackPanel>
+                    </controls:SettingsCard>
+                    <!--  任务栏外观设置  -->
+                    <TextBlock
+                        AutomationProperties.HeadingLevel="Level2"
+                        FontWeight="SemiBold"
+                        Margin="1,24,0,8"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        x:Uid="Settings_TaskbarAppearance" />
+                    <controls:SettingsCard x:Uid="Settings_ColorAnimationEnabled">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE945;" />
+                        </controls:SettingsCard.HeaderIcon>
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.ColorAnimationEnabled, Mode=TwoWay}" x:Uid="Settings_Toggle" />
+                    </controls:SettingsCard>
+                    <controls:SettingsExpander x:Uid="Settings_ColorAnimationOptions">
+                        <controls:SettingsExpander.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE916;" />
+                        </controls:SettingsExpander.HeaderIcon>
+                        <controls:SettingsExpander.Items>
+                            <controls:SettingsCard IsEnabled="{x:Bind ViewModel.ColorAnimationEnabled, Mode=OneWay}" x:Uid="Settings_ColorEasing">
+                                <ComboBox
+                                    ItemsSource="{x:Bind ViewModel.ColorEasingDisplayNames, Mode=OneWay}"
+                                    MinWidth="160"
+                                    SelectedIndex="{x:Bind ViewModel.ColorEasingIndex, Mode=TwoWay}"
+                                    x:Name="ColorEasingCombo" />
+                            </controls:SettingsCard>
+                            <controls:SettingsCard IsEnabled="{x:Bind ViewModel.ColorAnimationEnabled, Mode=OneWay}" x:Uid="Settings_ColorAnimationFrameRate">
+                                <NumberBox
+                                    LargeChange="30"
+                                    Maximum="240"
+                                    MinWidth="110"
+                                    Minimum="1"
+                                    SmallChange="1"
+                                    SpinButtonPlacementMode="Inline"
+                                    ValidationMode="InvalidInputOverwritten"
+                                    Value="{x:Bind ViewModel.ColorAnimationFrameRate, Mode=TwoWay}" />
+                            </controls:SettingsCard>
+                            <controls:SettingsCard IsEnabled="{x:Bind ViewModel.ColorAnimationEnabled, Mode=OneWay}" x:Uid="Settings_ColorAnimationDuration">
+                                <NumberBox
+                                    LargeChange="250"
+                                    Maximum="5000"
+                                    MinWidth="110"
+                                    Minimum="0"
+                                    SmallChange="50"
+                                    SpinButtonPlacementMode="Inline"
+                                    ValidationMode="InvalidInputOverwritten"
+                                    Value="{x:Bind ViewModel.ColorAnimationDurationMs, Mode=TwoWay}"
+                                    x:Name="ColorAnimationDurationBox" />
+                            </controls:SettingsCard>
+                            <controls:SettingsCard IsEnabled="{x:Bind ViewModel.ColorAnimationEnabled, Mode=OneWay}" x:Uid="Settings_ColorSamplingDelay">
+                                <NumberBox
+                                    LargeChange="250"
+                                    Maximum="2000"
+                                    MinWidth="110"
+                                    Minimum="0"
+                                    SmallChange="50"
+                                    SpinButtonPlacementMode="Inline"
+                                    ValidationMode="InvalidInputOverwritten"
+                                    Value="{x:Bind ViewModel.ColorSamplingDelayMs, Mode=TwoWay}"
+                                    x:Name="ColorSamplingDelayBox" />
+                            </controls:SettingsCard>
+                        </controls:SettingsExpander.Items>
+                    </controls:SettingsExpander>
+                    <!--  后处理设置  -->
+                    <TextBlock
+                        AutomationProperties.HeadingLevel="Level2"
+                        FontWeight="SemiBold"
+                        Margin="1,24,0,8"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        x:Uid="Settings_PostProcess" />
+                    <controls:SettingsCard x:Uid="Settings_PostProcessEnabled">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE771;" />
+                        </controls:SettingsCard.HeaderIcon>
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.PostProcessEnabled, Mode=TwoWay}" x:Uid="Settings_Toggle" />
+                    </controls:SettingsCard>
+                    <controls:SettingsExpander IsEnabled="{x:Bind ViewModel.PostProcessEnabled, Mode=OneWay}" x:Uid="Settings_PostProcessOptions">
+                        <controls:SettingsExpander.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE790;" />
+                        </controls:SettingsExpander.HeaderIcon>
+                        <controls:SettingsExpander.Items>
+                            <controls:SettingsCard x:Uid="Settings_Brightness">
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="12"
+                                    x:Name="BrightnessControls">
+                                    <Slider
+                                        Maximum="1"
+                                        Minimum="-1"
+                                        StepFrequency="0.01"
+                                        Value="{x:Bind ViewModel.BrightnessAdjustment, Mode=TwoWay}"
+                                        VerticalAlignment="Center"
+                                        Width="200" />
+                                    <NumberBox
+                                        Maximum="1"
+                                        Minimum="-1"
+                                        SmallChange="0.01"
+                                        SpinButtonPlacementMode="Compact"
+                                        Value="{x:Bind ViewModel.BrightnessAdjustment, Mode=TwoWay}"
+                                        VerticalAlignment="Center"
+                                        Width="80" />
+                                </StackPanel>
+                            </controls:SettingsCard>
+                            <controls:SettingsCard x:Uid="Settings_Saturation">
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="12"
+                                    x:Name="SaturationControls">
+                                    <Slider
+                                        Maximum="1"
+                                        Minimum="-1"
+                                        StepFrequency="0.01"
+                                        Value="{x:Bind ViewModel.SaturationAdjustment, Mode=TwoWay}"
+                                        VerticalAlignment="Center"
+                                        Width="200" />
+                                    <NumberBox
+                                        Maximum="1"
+                                        Minimum="-1"
+                                        SmallChange="0.01"
+                                        SpinButtonPlacementMode="Compact"
+                                        Value="{x:Bind ViewModel.SaturationAdjustment, Mode=TwoWay}"
+                                        VerticalAlignment="Center"
+                                        Width="80" />
+                                </StackPanel>
+                            </controls:SettingsCard>
+                            <controls:SettingsCard x:Uid="Settings_Contrast">
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="12"
+                                    x:Name="ContrastControls">
+                                    <Slider
+                                        Maximum="1"
+                                        Minimum="-1"
+                                        StepFrequency="0.01"
+                                        Value="{x:Bind ViewModel.ContrastAdjustment, Mode=TwoWay}"
+                                        VerticalAlignment="Center"
+                                        Width="200" />
+                                    <NumberBox
+                                        Maximum="1"
+                                        Minimum="-1"
+                                        SmallChange="0.01"
+                                        SpinButtonPlacementMode="Compact"
+                                        Value="{x:Bind ViewModel.ContrastAdjustment, Mode=TwoWay}"
+                                        VerticalAlignment="Center"
+                                        Width="80" />
+                                </StackPanel>
+                            </controls:SettingsCard>
+                            <controls:SettingsCard x:Uid="Settings_Opacity">
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                    Spacing="12"
+                                    x:Name="OpacityControls">
+                                    <Slider
+                                        Maximum="1"
+                                        Minimum="0"
+                                        StepFrequency="0.01"
+                                        Value="{x:Bind ViewModel.OpacityValue, Mode=TwoWay}"
+                                        VerticalAlignment="Center"
+                                        Width="200" />
+                                    <NumberBox
+                                        Maximum="1"
+                                        Minimum="0"
+                                        SmallChange="0.01"
+                                        SpinButtonPlacementMode="Compact"
+                                        Value="{x:Bind ViewModel.OpacityValue, Mode=TwoWay}"
+                                        VerticalAlignment="Center"
+                                        Width="80" />
+                                </StackPanel>
+                            </controls:SettingsCard>
+                        </controls:SettingsExpander.Items>
+                    </controls:SettingsExpander>
+                    <!--  日志设置  -->
+                    <TextBlock
+                        AutomationProperties.HeadingLevel="Level2"
+                        FontWeight="SemiBold"
+                        Margin="1,24,0,8"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        x:Uid="Settings_Logging" />
+                    <controls:SettingsCard x:Uid="Settings_LogLevel">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE9D9;" />
+                        </controls:SettingsCard.HeaderIcon>
+                        <ComboBox ItemsSource="{x:Bind ViewModel.LogLevelDisplayNames, Mode=OneWay}" SelectedIndex="{x:Bind ViewModel.LogLevelIndex, Mode=TwoWay}" />
+                    </controls:SettingsCard>
+                    <!--  关于  -->
+                    <TextBlock
+                        AutomationProperties.HeadingLevel="Level2"
+                        FontWeight="SemiBold"
+                        Margin="1,24,0,8"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        x:Uid="Settings_About" />
+                    <controls:SettingsExpander
+                        Description="{x:Bind ViewModel.Copyright, Mode=OneWay}"
+                        Header="{x:Bind ViewModel.DisplayName, Mode=OneWay}"
+                        x:Uid="Settings_AboutVersion">
+                        <TextBlock
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                            IsTextSelectionEnabled="True"
+                            Text="{x:Bind ViewModel.Version, Mode=OneWay}" />
+
+                        <controls:SettingsExpander.HeaderIcon>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE946;" />
+                        </controls:SettingsExpander.HeaderIcon>
+                        <controls:SettingsExpander.Items>
+                            <controls:SettingsCard ContentAlignment="Left" HorizontalContentAlignment="Left">
+                                <StackPanel Margin="-12,0,0,0" Spacing="12">
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <HyperlinkButton NavigateUri="{x:Bind ViewModel.GitHubUri, Mode=OneWay}" x:Uid="Settings_GitHub" />
+                                        <HyperlinkButton NavigateUri="{x:Bind ViewModel.StoreUri, Mode=OneWay}" x:Uid="Settings_MicrosoftStore" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </controls:SettingsCard>
+                        </controls:SettingsExpander.Items>
+                    </controls:SettingsExpander>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

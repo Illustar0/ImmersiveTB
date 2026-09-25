@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img"
+     aria-labelledby="title">
+    <title id="title">ImmTB</title>
+    <style>
+        .name { stroke: #1B303A; }
+        .taskbar { stroke: #167D87; }
+        @media (prefers-color-scheme: dark) {
+        .name { stroke: #E8F1F2; }
+        .taskbar { stroke: #78D0CB; }
+        }
+    </style>
+    <g fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+        <g class="name">
+            <path d="M13 22h14M20 22v38M13 60h14"/>
+            <path d="M39 60V42c0-7 3-10 8-10s8 4 8 10v18M55 42c0-7 4-10 9-10s9 4 9 10v18"/>
+            <path d="M83 60V42c0-7 3-10 8-10s8 4 8 10v18M99 42c0-7 4-10 9-10s9 4 9 10v18"/>
+        </g>
+        <g class="taskbar">
+            <path d="M27 78h35M44.5 78v38"/>
+            <path d="M76 116V78h19c11 0 12 15 0 18H76m0 0h19c12 0 13 20 0 20H76"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,75 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install Windows App CLI
+        shell: pwsh
+        run: winget install Microsoft.winappcli --source winget --accept-source-agreements --accept-package-agreements --disable-interactivity
+
+      - name: Calculate next version
+        id: version
+        shell: pwsh
+        run: |
+          $version = (npx git-cliff --bumped-version).Trim().TrimStart('v')
+          if ($LASTEXITCODE -ne 0 -or $version -notmatch '^\d+\.\d+\.\d+$') { throw 'git-cliff did not return a semantic version.' }
+          "semver=$version" >> $env:GITHUB_OUTPUT
+          "tag=v$version" >> $env:GITHUB_OUTPUT
+
+      - name: Package release
+        shell: pwsh
+        env:
+          SIGNING_CERTIFICATE: ${{ secrets.SIGNING_CERTIFICATE }}
+          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+        run: |
+          .\build.ps1 --target Package --separate-pdbs --sem-ver '${{ steps.version.outputs.semver }}' --revision 0
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload packages and symbols
+        uses: actions/upload-artifact@v7
+        with:
+          name: ImmersiveTB-${{ steps.version.outputs.semver }}.0
+          path: |
+            artifacts/packages/Certificate.cer
+            artifacts/packages/*.msix
+            artifacts/packages/*.msixbundle
+            artifacts/symbols/*-pdbs.zip
+          if-no-files-found: error
+
+      - name: Generate release notes
+        shell: pwsh
+        run: |
+          npx git-cliff --config cliff.toml --unreleased --tag '${{ steps.version.outputs.tag }}' --output artifacts/release-notes.md
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+          body_path: artifacts/release-notes.md
+          files: |
+            artifacts/portable/*.zip
+            artifacts/symbols/*-pdbs.zip
+          fail_on_unmatched_files: true

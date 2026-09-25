@@ -1,0 +1,25 @@
+// Monitor and taskbar discovery
+FindWindow
+GetWindowRect
+RECT
+
+// GDI screen capture
+GetDC
+ReleaseDC
+CreateCompatibleDC
+DeleteDC
+CreateCompatibleBitmap
+CreateDIBSection
+SelectObject
+BitBlt
+GdiFlush
+DeleteObject
+GetDIBits
+BITMAPINFO
+BITMAPINFOHEADER
+ROP_CODE
+
+// Direct3D interop
+MonitorFromWindow
+MONITOR_FROM_FLAGS
+CreateDirect3D11DeviceFromDXGIDevice

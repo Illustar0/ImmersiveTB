@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>ImmersiveTB</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+      <value>Copyright © 2026 Illustar0</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>根据屏幕颜色动态调整 Windows 任务栏。</value>
+  </data>
+  <data name="Shell_Main.Content" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="Shell_NavigationView.PaneTitle" xml:space="preserve">
+    <value>菜单</value>
+   </data>
+  <data name="Shell_MainHeader" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>个性化</value>
+  </data>
+  <data name="Settings_Logging.Text" xml:space="preserve"><value>日志</value></data>
+  <data name="Settings_LogLevel.Header" xml:space="preserve"><value>日志详细级别</value></data>
+  <data name="Settings_LogLevel.Description" xml:space="preserve"><value>控制台、调试输出和文件日志的最低记录级别</value></data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>ImmersiveTB 会根据屏幕颜色动态调整 Windows 任务栏。</value>
+  </data>
+  <data name="AppTheme_Dark" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="AppTheme_Light" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="AppTheme_System" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
+  <data name="Main_AppName.Text" xml:space="preserve"><value>ImmersiveTB</value></data>
+  <data name="Shell_Settings" xml:space="preserve"><value>设置</value></data>
+  <data name="Shell_SettingsItem.Content" xml:space="preserve"><value>设置</value></data>
+  <data name="Tray_DynamicColor.Text" xml:space="preserve"><value>动态取色</value></data>
+  <data name="Tray_DynamicTheme.Text" xml:space="preserve"><value>动态任务栏主题</value></data>
+  <data name="Tray_Ttb.Text" xml:space="preserve"><value>状态</value></data>
+  <data name="Tray_ReconnectTtb.Text" xml:space="preserve"><value>重新检测 TranslucentTB</value></data>
+  <data name="Tray_ResetState.Text" xml:space="preserve"><value>重置动态状态</value></data>
+  <data name="Tray_Advanced.Text" xml:space="preserve"><value>高级</value></data>
+  <data name="Tray_OpenLogFile.Text" xml:space="preserve"><value>打开日志文件</value></data>
+  <data name="Tray_LogLevel.Text" xml:space="preserve"><value>日志详细级别</value></data>
+  <data name="Tray_DumpState.Text" xml:space="preserve"><value>将动态状态转储至日志</value></data>
+  <data name="Tray_EditSettings.Text" xml:space="preserve"><value>编辑设置</value></data>
+  <data name="Tray_OpenData.Text" xml:space="preserve"><value>打开应用数据文件夹</value></data>
+  <data name="Tray_Startup.Text" xml:space="preserve"><value>开机自启</value></data>
+  <data name="Tray_Quit.Text" xml:space="preserve"><value>退出</value></data>
+  <data name="Tray_TtbConnected" xml:space="preserve"><value>TranslucentTB：已连接</value></data>
+  <data name="Tray_TtbDisconnected" xml:space="preserve"><value>TranslucentTB：未检测到</value></data>
+  <data name="Tray_TtbStateFormat" xml:space="preserve"><value>动态状态：{0}</value></data>
+  <data name="TaskbarState_Desktop" xml:space="preserve"><value>桌面</value></data>
+  <data name="TaskbarState_VisibleWindow" xml:space="preserve"><value>可见窗口</value></data>
+  <data name="TaskbarState_MaximizedWindow" xml:space="preserve"><value>最大化窗口</value></data>
+  <data name="TaskbarState_StartMenuOpen" xml:space="preserve"><value>开始菜单</value></data>
+  <data name="TaskbarState_SearchOpen" xml:space="preserve"><value>搜索</value></data>
+  <data name="TaskbarState_TaskView" xml:space="preserve"><value>任务视图</value></data>
+  <data name="TaskbarState_BatterySaver" xml:space="preserve"><value>节能模式</value></data>
+  <data name="LogLevel_Trace.Text" xml:space="preserve"><value>跟踪</value></data>
+  <data name="LogLevel_Debug.Text" xml:space="preserve"><value>调试</value></data>
+  <data name="LogLevel_Information.Text" xml:space="preserve"><value>信息</value></data>
+  <data name="LogLevel_Warning.Text" xml:space="preserve"><value>警告</value></data>
+  <data name="LogLevel_Error.Text" xml:space="preserve"><value>错误</value></data>
+  <data name="LogLevel_Critical.Text" xml:space="preserve"><value>严重</value></data>
+  <data name="LogLevel_Off.Text" xml:space="preserve"><value>关闭</value></data>
+  <data name="LogLevelName_Trace" xml:space="preserve"><value>跟踪</value></data>
+  <data name="LogLevelName_Debug" xml:space="preserve"><value>调试</value></data>
+  <data name="LogLevelName_Information" xml:space="preserve"><value>信息</value></data>
+  <data name="LogLevelName_Warning" xml:space="preserve"><value>警告</value></data>
+  <data name="LogLevelName_Error" xml:space="preserve"><value>错误</value></data>
+  <data name="LogLevelName_Critical" xml:space="preserve"><value>严重</value></data>
+  <data name="LogLevelName_Off" xml:space="preserve"><value>关闭</value></data>
+  <data name="Main_Tagline.Text" xml:space="preserve"><value>让任务栏随屏幕内容动态变化</value></data>
+  <data name="Main_Features.Text" xml:space="preserve"><value>功能</value></data>
+  <data name="Main_DynamicColor.Header" xml:space="preserve"><value>动态取色</value></data>
+  <data name="Main_DynamicColor.Description" xml:space="preserve"><value>根据屏幕内容自动调整任务栏颜色</value></data>
+  <data name="Main_DynamicTheme.Header" xml:space="preserve"><value>动态任务栏主题</value></data>
+  <data name="Main_DynamicTheme.Description" xml:space="preserve"><value>根据采样颜色自动调整任务栏主题</value></data>
+  <data name="Settings_Theme.Header" xml:space="preserve"><value>主题</value></data>
+  <data name="Settings_Theme.Description" xml:space="preserve"><value>选择应用外观</value></data>
+  <data name="Settings_Language.Header" xml:space="preserve"><value>应用语言</value></data>
+  <data name="Settings_Language.Description" xml:space="preserve"><value>选择界面语言，重新启动应用后生效</value></data>
+  <data name="AppLanguage_System" xml:space="preserve"><value>跟随系统</value></data>
+  <data name="AppLanguage_English" xml:space="preserve"><value>English</value></data>
+  <data name="AppLanguage_ChineseSimplified" xml:space="preserve"><value>简体中文</value></data>
+  <data name="LanguageRestartDialog_Title" xml:space="preserve"><value>需要重新启动</value></data>
+  <data name="LanguageRestartDialog_Content" xml:space="preserve"><value>是否立即重新启动 ImmersiveTB，以应用所选的应用语言？</value></data>
+  <data name="LanguageRestartDialog_Confirm" xml:space="preserve"><value>确定</value></data>
+  <data name="LanguageRestartDialog_Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="LanguageRestartFailedDialog_Title" xml:space="preserve"><value>重新启动失败</value></data>
+  <data name="LanguageRestartFailedDialog_Content" xml:space="preserve"><value>ImmersiveTB 无法重新启动（{0}）。请手动重新启动应用以应用语言设置。</value></data>
+  <data name="LanguageRestartFailedDialog_Close" xml:space="preserve"><value>确定</value></data>
+  <data name="Settings_ColorSampling.Text" xml:space="preserve"><value>颜色采样</value></data>
+  <data name="Settings_SamplingConfiguration.Header" xml:space="preserve"><value>采样配置</value></data>
+  <data name="Settings_SamplingConfiguration.Description" xml:space="preserve"><value>配置桌面截图与颜色提取</value></data>
+  <data name="Settings_CaptureMethod.Header" xml:space="preserve"><value>截图方式</value></data>
+  <data name="Settings_CaptureMethod.Description" xml:space="preserve"><value>选择桌面截图实现</value></data>
+  <data name="Settings_SampleHeight.Header" xml:space="preserve"><value>采样区域高度</value></data>
+  <data name="Settings_SampleHeight.Description" xml:space="preserve"><value>采样区域的像素高度</value></data>
+  <data name="Settings_TaskbarOffset.Header" xml:space="preserve"><value>任务栏偏移量</value></data>
+  <data name="Settings_TaskbarOffset.Description" xml:space="preserve"><value>采样区域与任务栏之间的像素间距</value></data>
+  <data name="Settings_SamplingAlgorithm.Header" xml:space="preserve"><value>采样算法</value></data>
+  <data name="Settings_SamplingAlgorithm.Description" xml:space="preserve"><value>选择从截图像素提取颜色的方式</value></data>
+  <data name="Settings_GaussianRadius.Header" xml:space="preserve"><value>高斯半径</value></data>
+  <data name="Settings_GaussianRadius.Description" xml:space="preserve"><value>数值越大，混合的邻域越宽</value></data>
+  <data name="Settings_TaskbarAppearance.Text" xml:space="preserve"><value>任务栏外观</value></data>
+  <data name="Settings_ColorAnimationEnabled.Header" xml:space="preserve"><value>颜色过渡动画</value></data>
+  <data name="Settings_ColorAnimationEnabled.Description" xml:space="preserve"><value>平滑过渡到新的任务栏颜色</value></data>
+  <data name="Settings_ColorAnimationOptions.Header" xml:space="preserve"><value>颜色过渡选项</value></data>
+  <data name="Settings_ColorAnimationOptions.Description" xml:space="preserve"><value>配置颜色变化的速度与运动曲线</value></data>
+  <data name="Settings_ColorAnimationFrameRate.Header" xml:space="preserve"><value>动画帧率</value></data>
+  <data name="Settings_ColorAnimationFrameRate.Description" xml:space="preserve"><value>每秒目标动画帧数</value></data>
+  <data name="Settings_ColorEasing.Header" xml:space="preserve"><value>缓动曲线</value></data>
+  <data name="Settings_ColorEasing.Description" xml:space="preserve"><value>选择颜色过渡的加速与减速方式</value></data>
+  <data name="Settings_ColorAnimationDuration.Header" xml:space="preserve"><value>动画时长</value></data>
+  <data name="Settings_ColorAnimationDuration.Description" xml:space="preserve"><value>颜色过渡持续时间（毫秒）</value></data>
+  <data name="Settings_ColorSamplingDelay.Header" xml:space="preserve"><value>取色延迟</value></data>
+  <data name="Settings_ColorSamplingDelay.Description" xml:space="preserve"><value>窗口状态变化后等待取色的时间（毫秒）</value></data>
+  <data name="Easing_Linear" xml:space="preserve"><value>线性</value></data>
+  <data name="Easing_EaseIn" xml:space="preserve"><value>缓入</value></data>
+  <data name="Easing_EaseOut" xml:space="preserve"><value>缓出</value></data>
+  <data name="Easing_EaseInOut" xml:space="preserve"><value>缓入缓出</value></data>
+  <data name="Easing_Quad" xml:space="preserve"><value>二次</value></data>
+  <data name="Easing_Cubic" xml:space="preserve"><value>三次</value></data>
+  <data name="Easing_Quart" xml:space="preserve"><value>四次</value></data>
+  <data name="Easing_Quint" xml:space="preserve"><value>五次</value></data>
+  <data name="Easing_Sine" xml:space="preserve"><value>正弦</value></data>
+  <data name="Easing_Expo" xml:space="preserve"><value>指数</value></data>
+  <data name="Easing_Circ" xml:space="preserve"><value>圆形</value></data>
+  <data name="Easing_Back" xml:space="preserve"><value>回弹</value></data>
+  <data name="Easing_Elastic" xml:space="preserve"><value>弹性</value></data>
+  <data name="Easing_Bounce" xml:space="preserve"><value>弹跳</value></data>
+  <data name="Settings_PostProcess.Text" xml:space="preserve"><value>后处理</value></data>
+  <data name="Settings_PostProcessEnabled.Header" xml:space="preserve"><value>启用后处理</value></data>
+  <data name="Settings_PostProcessEnabled.Description" xml:space="preserve"><value>应用颜色前调整采样结果</value></data>
+  <data name="Settings_Toggle.OnContent" xml:space="preserve"><value>开</value></data>
+  <data name="Settings_Toggle.OffContent" xml:space="preserve"><value>关</value></data>
+  <data name="Settings_PostProcessOptions.Header" xml:space="preserve"><value>后处理选项</value></data>
+  <data name="Settings_PostProcessOptions.Description" xml:space="preserve"><value>调整颜色输出参数</value></data>
+  <data name="Settings_Brightness.Header" xml:space="preserve"><value>亮度</value></data>
+  <data name="Settings_Brightness.Description" xml:space="preserve"><value>调整颜色亮度</value></data>
+  <data name="Settings_Saturation.Header" xml:space="preserve"><value>饱和度</value></data>
+  <data name="Settings_Saturation.Description" xml:space="preserve"><value>调整颜色饱和度</value></data>
+  <data name="Settings_Contrast.Header" xml:space="preserve"><value>对比度</value></data>
+  <data name="Settings_Contrast.Description" xml:space="preserve"><value>调整颜色对比度</value></data>
+  <data name="Settings_Opacity.Header" xml:space="preserve"><value>不透明度</value></data>
+  <data name="Settings_Opacity.Description" xml:space="preserve"><value>调整任务栏不透明度</value></data>
+  <data name="Settings_AboutVersion.Description" xml:space="preserve"><value>版本信息</value></data>
+  <data name="Settings_GitHub.Content" xml:space="preserve"><value>GitHub</value></data>
+  <data name="Settings_MicrosoftStore.Content" xml:space="preserve"><value>Microsoft Store</value></data>
+  <data name="CaptureMethod_WindowsGraphicsCapture" xml:space="preserve"><value>Windows 图形捕获</value></data>
+  <data name="CaptureMethod_Gdi" xml:space="preserve"><value>GDI</value></data>
+  <data name="SamplingAlgorithm_DominantColor" xml:space="preserve"><value>主色调</value></data>
+  <data name="SamplingAlgorithm_GaussianBlur" xml:space="preserve"><value>高斯混合</value></data>
+</root>

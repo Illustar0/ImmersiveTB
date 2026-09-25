@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>ImmersiveTB</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+        <value>Copyright © 2026 Illustar0</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Adapt the Windows taskbar to the colors on your screen.</value>
+  </data>
+  <data name="Shell_Main.Content" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="Shell_NavigationView.PaneTitle" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Shell_MainHeader" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Personalization</value>
+  </data>
+  <data name="Settings_Logging.Text" xml:space="preserve"><value>Logging</value></data>
+  <data name="Settings_LogLevel.Header" xml:space="preserve"><value>Log level</value></data>
+  <data name="Settings_LogLevel.Description" xml:space="preserve"><value>Controls the minimum level written to console, debug, and file logs</value></data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>About this application</value>
+  </data>
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
+    <value>ImmersiveTB adapts the Windows taskbar to the colors on your screen.</value>
+  </data>
+  <data name="AppTheme_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="AppTheme_Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="AppTheme_System" xml:space="preserve">
+    <value>Use system</value>
+  </data>
+  <data name="Main_AppName.Text" xml:space="preserve"><value>ImmersiveTB</value></data>
+  <data name="Shell_Settings" xml:space="preserve"><value>Settings</value></data>
+  <data name="Shell_SettingsItem.Content" xml:space="preserve"><value>Settings</value></data>
+  <data name="Tray_DynamicColor.Text" xml:space="preserve"><value>Dynamic color</value></data>
+  <data name="Tray_DynamicTheme.Text" xml:space="preserve"><value>Dynamic taskbar theme</value></data>
+  <data name="Tray_Ttb.Text" xml:space="preserve"><value>Status</value></data>
+  <data name="Tray_ReconnectTtb.Text" xml:space="preserve"><value>Reconnect TranslucentTB</value></data>
+  <data name="Tray_ResetState.Text" xml:space="preserve"><value>Reset dynamic state</value></data>
+  <data name="Tray_Advanced.Text" xml:space="preserve"><value>Advanced</value></data>
+  <data name="Tray_OpenLogFile.Text" xml:space="preserve"><value>Open log file</value></data>
+  <data name="Tray_LogLevel.Text" xml:space="preserve"><value>Log level</value></data>
+  <data name="Tray_DumpState.Text" xml:space="preserve"><value>Dump dynamic state to log</value></data>
+  <data name="Tray_EditSettings.Text" xml:space="preserve"><value>Edit settings</value></data>
+  <data name="Tray_OpenData.Text" xml:space="preserve"><value>Open app data folder</value></data>
+  <data name="Tray_Startup.Text" xml:space="preserve"><value>Start with Windows</value></data>
+  <data name="Tray_Quit.Text" xml:space="preserve"><value>Quit</value></data>
+  <data name="Tray_TtbConnected" xml:space="preserve"><value>TranslucentTB: connected</value></data>
+  <data name="Tray_TtbDisconnected" xml:space="preserve"><value>TranslucentTB: not detected</value></data>
+  <data name="Tray_TtbStateFormat" xml:space="preserve"><value>Dynamic state: {0}</value></data>
+  <data name="TaskbarState_Desktop" xml:space="preserve"><value>Desktop</value></data>
+  <data name="TaskbarState_VisibleWindow" xml:space="preserve"><value>Visible window</value></data>
+  <data name="TaskbarState_MaximizedWindow" xml:space="preserve"><value>Maximized window</value></data>
+  <data name="TaskbarState_StartMenuOpen" xml:space="preserve"><value>Start menu</value></data>
+  <data name="TaskbarState_SearchOpen" xml:space="preserve"><value>Search</value></data>
+  <data name="TaskbarState_TaskView" xml:space="preserve"><value>Task view</value></data>
+  <data name="TaskbarState_BatterySaver" xml:space="preserve"><value>Battery saver</value></data>
+  <data name="LogLevel_Trace.Text" xml:space="preserve"><value>Trace</value></data>
+  <data name="LogLevel_Debug.Text" xml:space="preserve"><value>Debug</value></data>
+  <data name="LogLevel_Information.Text" xml:space="preserve"><value>Information</value></data>
+  <data name="LogLevel_Warning.Text" xml:space="preserve"><value>Warning</value></data>
+  <data name="LogLevel_Error.Text" xml:space="preserve"><value>Error</value></data>
+  <data name="LogLevel_Critical.Text" xml:space="preserve"><value>Critical</value></data>
+  <data name="LogLevel_Off.Text" xml:space="preserve"><value>Off</value></data>
+  <data name="LogLevelName_Trace" xml:space="preserve"><value>Trace</value></data>
+  <data name="LogLevelName_Debug" xml:space="preserve"><value>Debug</value></data>
+  <data name="LogLevelName_Information" xml:space="preserve"><value>Information</value></data>
+  <data name="LogLevelName_Warning" xml:space="preserve"><value>Warning</value></data>
+  <data name="LogLevelName_Error" xml:space="preserve"><value>Error</value></data>
+  <data name="LogLevelName_Critical" xml:space="preserve"><value>Critical</value></data>
+  <data name="LogLevelName_Off" xml:space="preserve"><value>Off</value></data>
+  <data name="Main_Tagline.Text" xml:space="preserve"><value>Adapt the taskbar to your screen content</value></data>
+  <data name="Main_Features.Text" xml:space="preserve"><value>Features</value></data>
+  <data name="Main_DynamicColor.Header" xml:space="preserve"><value>Dynamic color sampling</value></data>
+  <data name="Main_DynamicColor.Description" xml:space="preserve"><value>Adjust the taskbar color from screen content</value></data>
+  <data name="Main_DynamicTheme.Header" xml:space="preserve"><value>Dynamic taskbar theme</value></data>
+  <data name="Main_DynamicTheme.Description" xml:space="preserve"><value>Adapt the taskbar theme to its sampled color</value></data>
+  <data name="Settings_Theme.Header" xml:space="preserve"><value>Theme</value></data>
+  <data name="Settings_Theme.Description" xml:space="preserve"><value>Choose the application appearance</value></data>
+  <data name="Settings_Language.Header" xml:space="preserve"><value>App language</value></data>
+  <data name="Settings_Language.Description" xml:space="preserve"><value>Choose the interface language; restart the app to apply it</value></data>
+  <data name="AppLanguage_System" xml:space="preserve"><value>Use system language</value></data>
+  <data name="AppLanguage_English" xml:space="preserve"><value>English</value></data>
+  <data name="AppLanguage_ChineseSimplified" xml:space="preserve"><value>简体中文</value></data>
+  <data name="LanguageRestartDialog_Title" xml:space="preserve"><value>Restart required</value></data>
+  <data name="LanguageRestartDialog_Content" xml:space="preserve"><value>Restart ImmersiveTB now to apply the selected application language?</value></data>
+  <data name="LanguageRestartDialog_Confirm" xml:space="preserve"><value>OK</value></data>
+  <data name="LanguageRestartDialog_Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="LanguageRestartFailedDialog_Title" xml:space="preserve"><value>Restart failed</value></data>
+  <data name="LanguageRestartFailedDialog_Content" xml:space="preserve"><value>ImmersiveTB could not restart ({0}). Restart the app manually to apply the language.</value></data>
+  <data name="LanguageRestartFailedDialog_Close" xml:space="preserve"><value>OK</value></data>
+  <data name="Settings_ColorSampling.Text" xml:space="preserve"><value>Color sampling</value></data>
+  <data name="Settings_SamplingConfiguration.Header" xml:space="preserve"><value>Sampling configuration</value></data>
+  <data name="Settings_SamplingConfiguration.Description" xml:space="preserve"><value>Configure desktop capture and color reduction</value></data>
+  <data name="Settings_CaptureMethod.Header" xml:space="preserve"><value>Capture method</value></data>
+  <data name="Settings_CaptureMethod.Description" xml:space="preserve"><value>Choose the desktop capture implementation</value></data>
+  <data name="Settings_SampleHeight.Header" xml:space="preserve"><value>Sample height</value></data>
+  <data name="Settings_SampleHeight.Description" xml:space="preserve"><value>Height of the sampled region in pixels</value></data>
+  <data name="Settings_TaskbarOffset.Header" xml:space="preserve"><value>Taskbar offset</value></data>
+  <data name="Settings_TaskbarOffset.Description" xml:space="preserve"><value>Gap above the taskbar in pixels</value></data>
+  <data name="Settings_SamplingAlgorithm.Header" xml:space="preserve"><value>Sampling algorithm</value></data>
+  <data name="Settings_SamplingAlgorithm.Description" xml:space="preserve"><value>Choose how captured pixels produce one color</value></data>
+  <data name="Settings_GaussianRadius.Header" xml:space="preserve"><value>Gaussian radius</value></data>
+  <data name="Settings_GaussianRadius.Description" xml:space="preserve"><value>Larger values blend a wider neighborhood</value></data>
+  <data name="Settings_TaskbarAppearance.Text" xml:space="preserve"><value>Taskbar appearance</value></data>
+  <data name="Settings_ColorAnimationEnabled.Header" xml:space="preserve"><value>Color transition animation</value></data>
+  <data name="Settings_ColorAnimationEnabled.Description" xml:space="preserve"><value>Smoothly transition to each new taskbar color</value></data>
+  <data name="Settings_ColorAnimationOptions.Header" xml:space="preserve"><value>Color transition options</value></data>
+  <data name="Settings_ColorAnimationOptions.Description" xml:space="preserve"><value>Configure the speed and motion curve of color changes</value></data>
+  <data name="Settings_ColorAnimationFrameRate.Header" xml:space="preserve"><value>Animation frame rate</value></data>
+  <data name="Settings_ColorAnimationFrameRate.Description" xml:space="preserve"><value>Target animation frames per second</value></data>
+  <data name="Settings_ColorEasing.Header" xml:space="preserve"><value>Easing curve</value></data>
+  <data name="Settings_ColorEasing.Description" xml:space="preserve"><value>Choose how the color transition accelerates and decelerates</value></data>
+  <data name="Settings_ColorAnimationDuration.Header" xml:space="preserve"><value>Animation duration</value></data>
+  <data name="Settings_ColorAnimationDuration.Description" xml:space="preserve"><value>Color transition duration in milliseconds</value></data>
+  <data name="Settings_ColorSamplingDelay.Header" xml:space="preserve"><value>Sampling delay</value></data>
+  <data name="Settings_ColorSamplingDelay.Description" xml:space="preserve"><value>Wait time after a window state change, in milliseconds</value></data>
+  <data name="Easing_Linear" xml:space="preserve"><value>Linear</value></data>
+  <data name="Easing_EaseIn" xml:space="preserve"><value>Ease in</value></data>
+  <data name="Easing_EaseOut" xml:space="preserve"><value>Ease out</value></data>
+  <data name="Easing_EaseInOut" xml:space="preserve"><value>Ease in and out</value></data>
+  <data name="Easing_Quad" xml:space="preserve"><value>Quadratic</value></data>
+  <data name="Easing_Cubic" xml:space="preserve"><value>Cubic</value></data>
+  <data name="Easing_Quart" xml:space="preserve"><value>Quartic</value></data>
+  <data name="Easing_Quint" xml:space="preserve"><value>Quintic</value></data>
+  <data name="Easing_Sine" xml:space="preserve"><value>Sine</value></data>
+  <data name="Easing_Expo" xml:space="preserve"><value>Exponential</value></data>
+  <data name="Easing_Circ" xml:space="preserve"><value>Circular</value></data>
+  <data name="Easing_Back" xml:space="preserve"><value>Back</value></data>
+  <data name="Easing_Elastic" xml:space="preserve"><value>Elastic</value></data>
+  <data name="Easing_Bounce" xml:space="preserve"><value>Bounce</value></data>
+  <data name="Settings_PostProcess.Text" xml:space="preserve"><value>Post-processing</value></data>
+  <data name="Settings_PostProcessEnabled.Header" xml:space="preserve"><value>Enable post-processing</value></data>
+  <data name="Settings_PostProcessEnabled.Description" xml:space="preserve"><value>Adjust the sampled color before applying it</value></data>
+  <data name="Settings_Toggle.OnContent" xml:space="preserve"><value>On</value></data>
+  <data name="Settings_Toggle.OffContent" xml:space="preserve"><value>Off</value></data>
+  <data name="Settings_PostProcessOptions.Header" xml:space="preserve"><value>Post-process options</value></data>
+  <data name="Settings_PostProcessOptions.Description" xml:space="preserve"><value>Adjust color output parameters</value></data>
+  <data name="Settings_Brightness.Header" xml:space="preserve"><value>Brightness</value></data>
+  <data name="Settings_Brightness.Description" xml:space="preserve"><value>Adjust color brightness</value></data>
+  <data name="Settings_Saturation.Header" xml:space="preserve"><value>Saturation</value></data>
+  <data name="Settings_Saturation.Description" xml:space="preserve"><value>Adjust color saturation</value></data>
+  <data name="Settings_Contrast.Header" xml:space="preserve"><value>Contrast</value></data>
+  <data name="Settings_Contrast.Description" xml:space="preserve"><value>Adjust color contrast</value></data>
+  <data name="Settings_Opacity.Header" xml:space="preserve"><value>Opacity</value></data>
+  <data name="Settings_Opacity.Description" xml:space="preserve"><value>Adjust taskbar opacity</value></data>
+  <data name="Settings_AboutVersion.Description" xml:space="preserve"><value>Version information</value></data>
+  <data name="Settings_GitHub.Content" xml:space="preserve"><value>GitHub</value></data>
+  <data name="Settings_MicrosoftStore.Content" xml:space="preserve"><value>Microsoft Store</value></data>
+  <data name="CaptureMethod_WindowsGraphicsCapture" xml:space="preserve"><value>Windows Graphics Capture</value></data>
+  <data name="CaptureMethod_Gdi" xml:space="preserve"><value>GDI</value></data>
+  <data name="SamplingAlgorithm_DominantColor" xml:space="preserve"><value>Dominant color</value></data>
+  <data name="SamplingAlgorithm_GaussianBlur" xml:space="preserve"><value>Gaussian blend</value></data>
+</root>

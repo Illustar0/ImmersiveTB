@@ -1,0 +1,72 @@
+﻿<Page
+    Loaded="OnLoaded"
+    Unloaded="OnUnloaded"
+    x:Class="ImmersiveTB.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid
+            Canvas.ZIndex="1"
+            Height="{x:Bind NavigationViewControl.CompactPaneLength, Mode=OneWay}"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            x:Name="TitleBarLayout">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48" x:Name="TitleBarLeftSpacer" />
+                <ColumnDefinition Width="*" x:Name="TitleBarContentColumn" />
+                <ColumnDefinition Width="*" x:Name="TitleBarRightSpacer" />
+            </Grid.ColumnDefinitions>
+            <Grid
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                x:Name="AppTitleBar">
+                <Grid HorizontalAlignment="Left" x:Name="AppTitleBarContent">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="12"
+                        VerticalAlignment="Center">
+                        <Image
+                            Height="16"
+                            Source="/Assets/App.ico"
+                            Width="16" />
+                        <TextBlock
+                            Style="{StaticResource CaptionTextBlockStyle}"
+                            TextWrapping="NoWrap"
+                            VerticalAlignment="Center"
+                            x:Name="AppTitleBarText" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <NavigationView
+            AlwaysShowHeader="True"
+            BackRequested="NavigationViewControl_BackRequested"
+            Canvas.ZIndex="0"
+            DisplayModeChanged="NavigationViewControl_DisplayModeChanged"
+            ExpandedModeThresholdWidth="1280"
+            IsBackButtonVisible="Visible"
+            IsSettingsVisible="False"
+            ItemInvoked="NavigationViewControl_ItemInvoked"
+            x:Name="NavigationViewControl"
+            x:Uid="Shell_NavigationView">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="home" x:Uid="Shell_Main">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE80F;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem Tag="settings" x:Uid="Shell_SettingsItem">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE713;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.FooterMenuItems>
+            <NavigationView.Content>
+                <Frame x:Name="NavigationFrame" />
+            </NavigationView.Content>
+        </NavigationView>
+    </Grid>
+</Page>

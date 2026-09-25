@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+        xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+        xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+        xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+        xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+        xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+        xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+        xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+        IgnorableNamespaces="uap uap11 rescap com desktop">
+
+    <Identity
+            Name="Illustar0.ImmersiveTB"
+            Publisher="CN=2A44D146-64D0-4497-B5FE-EE27CED3A60E"
+            Version="0.1.0.0"/>
+
+    <mp:PhoneIdentity PhoneProductId="3fa5260b-3ae3-4908-8b37-6b102a0d1a27"
+                      PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+    <Properties>
+        <DisplayName>ms-resource:AppDisplayName</DisplayName>
+        <PublisherDisplayName>Illustar0</PublisherDisplayName>
+        <Logo>Assets\StoreLogo.png</Logo>
+    </Properties>
+
+    <Dependencies>
+        <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0"/>
+    </Dependencies>
+
+    <Resources>
+        <Resource Language="x-generate"/>
+    </Resources>
+
+    <Applications>
+        <Application Id="App"
+                     Executable="$targetnametoken$.exe"
+                     EntryPoint="$targetentrypoint$">
+            <uap:VisualElements
+                    DisplayName="ms-resource:AppDisplayName"
+                    Description="ms-resource:AppDescription"
+                    BackgroundColor="transparent"
+                    Square150x150Logo="Assets\Square150x150Logo.png"
+                    Square44x44Logo="Assets\Square44x44Logo.png">
+                <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png"
+                                 Square310x310Logo="Assets\LargeTile.png"/>
+                <uap:SplashScreen Image="Assets\SplashScreen.png"/>
+            </uap:VisualElements>
+            <Extensions>
+                <desktop:Extension Category="windows.startupTask"
+                                   Executable="ImmersiveTB.exe"
+                                   EntryPoint="Windows.FullTrustApplication">
+                    <desktop:StartupTask TaskId="ImmersiveTBStartup"
+                                         Enabled="false"
+                                         DisplayName="ms-resource:AppDisplayName"/>
+                </desktop:Extension>
+                <desktop:Extension Category="windows.toastNotificationActivation">
+                    <desktop:ToastNotificationActivation ToastActivatorCLSID="18461dec-5f96-479f-8144-f93b24c58413"/>
+                </desktop:Extension>
+
+                <com:Extension Category="windows.comServer">
+                    <com:ComServer>
+                        <com:ExeServer Executable="ImmersiveTB.exe" Arguments="----AppNotificationActivated:"
+                                       DisplayName="Toast activator">
+                            <com:Class Id="18461dec-5f96-479f-8144-f93b24c58413" DisplayName="Toast activator"/>
+                        </com:ExeServer>
+                    </com:ComServer>
+                </com:Extension>
+            </Extensions>
+        </Application>
+    </Applications>
+
+    <Capabilities>
+        <rescap:Capability Name="runFullTrust"/>
+        <uap11:Capability Name="graphicsCaptureProgrammatic"/>
+        <uap11:Capability Name="graphicsCaptureWithoutBorder"/>
+    </Capabilities>
+
+</Package>

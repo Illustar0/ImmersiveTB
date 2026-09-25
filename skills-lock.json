@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "winui-code-review": {
+      "source": "microsoft/win-dev-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/winui/skills/winui-code-review/SKILL.md",
+      "computedHash": "b1f78bf281f2da38ee44c25d3bbe573e52a2eeb8c07947a40feeebfacfbc35e6"
+    },
+    "winui-design": {
+      "source": "microsoft/win-dev-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/winui/skills/winui-design/SKILL.md",
+      "computedHash": "d6c1daeecb3cd47af2862f8d6e817fd6fef8438c6dd82b7cda1bff406c763582"
+    },
+    "winui-dev-workflow": {
+      "source": "microsoft/win-dev-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/winui/skills/winui-dev-workflow/SKILL.md",
+      "computedHash": "baec1bdf4b7d4328cfd6ff982b41797add7d39090752bdb168ebfe9646a83d19"
+    }
+  }
+}

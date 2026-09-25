@@ -1,0 +1,15 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Thickness x:Key="NavigationViewContentMargin">0,45,0,0</Thickness>
+    <Thickness x:Key="NavigationViewMinimalContentMargin">0,45,0,0</Thickness>
+    <Thickness x:Key="NavigationViewHeaderMargin">24,24,24,24</Thickness>
+    <Style
+        BasedOn="{StaticResource BaseTextBlockStyle}"
+        TargetType="TextBlock"
+        x:Key="PageHeaderTextBlockStyle">
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="FontFamily" Value="XamlAutoFontFamily" />
+        <Setter Property="Margin" Value="24,12,24,12" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+</ResourceDictionary>
