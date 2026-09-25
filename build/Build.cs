@@ -88,6 +88,7 @@ public sealed class Build : NukeBuild
     [SuppressMessage("Major Code Smell", "S1144", Justification = "NUKE invokes this target by name from CI.")]
     private Target Package => target => target
         .DependsOn(Publish)
+        .Triggers(ArchivePortable)
         .Produces(Packages / "*")
         .Executes(() =>
         {
@@ -97,7 +98,6 @@ public sealed class Build : NukeBuild
             }
 
             Pack();
-            ArchivePortableBuilds();
             if (SeparatePdbs)
             {
                 ArchiveSymbols();

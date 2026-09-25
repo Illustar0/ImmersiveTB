@@ -38,17 +38,14 @@ jobs:
           "semver=$version" >> $env:GITHUB_OUTPUT
           "revision=$([int]$env:GITHUB_RUN_NUMBER % 65536)" >> $env:GITHUB_OUTPUT
 
-      - name: Build portable and optional packages
-        id: package
+      - name: Build packages and portable
         shell: pwsh
         env:
           SIGNING_CERTIFICATE: ${{ secrets.SIGNING_CERTIFICATE }}
           SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
         run: |
-          $target = if ($env:SIGNING_CERTIFICATE -and $env:SIGNING_CERTIFICATE_PASSWORD) { 'Package' } else { 'ArchivePortable' }
-          .\build.ps1 --target $target --sem-ver '${{ steps.version.outputs.semver }}' --revision '${{ steps.version.outputs.revision }}'
+          .\build.ps1 --target Package --sem-ver '${{ steps.version.outputs.semver }}' --revision '${{ steps.version.outputs.revision }}'
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          "signed=$($target -eq 'Package')" >> $env:GITHUB_OUTPUT
 
       - name: Upload portable builds
         uses: actions/upload-artifact@v7
@@ -58,7 +55,6 @@ jobs:
           if-no-files-found: error
 
       - name: Upload packages
-        if: ${{ steps.package.outputs.signed == 'True' }}
         uses: actions/upload-artifact@v7
         with:
           name: ImmersiveTB-${{ steps.version.outputs.semver }}.${{ steps.version.outputs.revision }}
