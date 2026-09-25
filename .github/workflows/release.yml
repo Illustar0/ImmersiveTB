@@ -54,7 +54,7 @@ jobs:
             artifacts/packages/Certificate.cer
             artifacts/packages/*.msix
             artifacts/packages/*.msixbundle
-            artifacts/symbols/*-pdbs.zip
+            artifacts/symbols/*-PDBs.zip
           if-no-files-found: error
 
       - name: Generate release notes
@@ -71,5 +71,5 @@ jobs:
           body_path: artifacts/release-notes.md
           files: |
             artifacts/portable/*.zip
-            artifacts/symbols/*-pdbs.zip
+            artifacts/symbols/*-PDBs.zip
           fail_on_unmatched_files: true
